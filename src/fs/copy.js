@@ -19,7 +19,6 @@ export const copy = async () => {
         files.map(async (file) => {
             await fs.promises.copyFile(path.join(dirCopyFrom, file),path.join(dirCopyTo, file));
         })
-
     } else {
         catapultError(errorMessage);
     }

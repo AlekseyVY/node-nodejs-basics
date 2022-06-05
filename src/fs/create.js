@@ -11,9 +11,8 @@ export const create = async () => {
     const dir = path.join(__dirname, '/files/fresh.txt')
     const message = 'I am fresh and young';
     const errorMessage = 'FS operation failed';
-    fs.access(dir, (error) => error
-        ? fs.writeFile(dir, message, () => true)
-        : catapultError(errorMessage))
+    const status = await fs.promises.access(dir).then(() => true).catch(() => false);
+    status ? catapultError(errorMessage) : await fs.promises.writeFile(dir, message);
 };
 
 await create();
