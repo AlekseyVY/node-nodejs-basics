@@ -1,5 +1,5 @@
 import readline from "readline";
-import { Transform } from"stream";
+import { Transform } from "stream";
 
 export const transform = async () => {
     const rl = readline.createInterface({ input: process.stdin });
